@@ -14,6 +14,7 @@ export default Controller.extend(SettingsSaveMixin, {
 
     showUploadLogoModal: false,
     showUploadCoverModal: false,
+    showUploadFaviconModal: false,
     showDeleteThemeModal: notEmpty('themeToDelete'),
 
     ajax: injectService(),
@@ -26,6 +27,10 @@ export default Controller.extend(SettingsSaveMixin, {
 
     logoImageSource: computed('model.logo', function () {
         return this.get('model.logo') || '';
+    }),
+
+    faviconImageSource: computed('model.favicon', function () {
+        return this.get('model.favicon') || '';
     }),
 
     coverImageSource: computed('model.cover', function () {
@@ -137,6 +142,10 @@ export default Controller.extend(SettingsSaveMixin, {
 
         toggleUploadLogoModal() {
             this.toggleProperty('showUploadLogoModal');
+        },
+
+        toggleUploadFaviconModal() {
+            this.toggleProperty('showUploadFaviconModal');
         },
 
         validateFacebookUrl() {

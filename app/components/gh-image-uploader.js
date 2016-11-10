@@ -34,6 +34,7 @@ export default Component.extend({
     formType: 'upload',
     url: null,
     uploadPercentage: 0,
+    favicon: false,
 
     ajax: injectService(),
     config: injectService(),

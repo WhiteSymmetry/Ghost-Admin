@@ -46,6 +46,23 @@
             </div>
 
             <div class="form-group">
+                <label>Blog Icon</label>
+                {{#if model.favicon}}
+                    <img class="blog-logo" src="{{model.favicon}}" alt="logo" role="button" {{action "toggleUploadFaviconModal"}}>
+                {{else}}
+                    <button type="button" class="btn btn-green js-modal-logo" {{action "toggleUploadFaviconModal"}}>Upload Image</button>
+                {{/if}}
+                <p>Upload a blog icon for your publication</p>
+
+                {{#if showUploadFaviconModal}}
+                    {{gh-fullscreen-modal "upload-image"
+                            model=(hash model=model imageProperty="favicon")
+                            close=(action "toggleUploadFaviconModal")
+                            modifier="action wide"}}
+                {{/if}}
+            </div>
+
+            <div class="form-group">
                 <label>Blog Cover</label>
                 {{#if model.cover}}
                     <img class="blog-cover" src="{{model.cover}}" alt="cover photo" role="button" {{action "toggleUploadCoverModal"}}>
